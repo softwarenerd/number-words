@@ -1,0 +1,22 @@
+# Mac OS X
+*.DS_Store
+
+number-words
+
+# Object files
+*.o
+*.a
+
+# Libraries
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
