@@ -239,6 +239,8 @@ void process_number_word_group(long number, int group_number, FILE * output_file
             fprintf(output_file, "%s%s", output_a_space ? " " : "", single_digits[ones]);
         }
     }
+
+    /* If this isn't the 0th group, and it has hundreds, tens or ones, output the group number. */
     if (group_number && (hundreds || tens || ones))
     {
         fprintf(output_file, " %s", group_number_strings[group_number]);        
