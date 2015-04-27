@@ -123,10 +123,10 @@ int main(int argc, char ** argv)
     /* Process the file. */
     while ((ch = fgetc(input_file)) != EOF)
     {
-        /* If the character is a digit, add it to the word. */
+        /* If the character is a digit, add it to the number word. */
         if (isdigit(ch))
         {
-            /* If the number is too long, it's a fatal error. */
+            /* If the number word is too long, it's a fatal error. */
             if (number_word_len == MAX_NUMBER_DIGITS)
             {
                 printf("Fatal Error: Encountered a number that was more than %i digits long.", MAX_NUMBER_DIGITS);
@@ -134,15 +134,15 @@ int main(int argc, char ** argv)
                 break;
             }
 
-            /* Add the character to the word. */
+            /* Add the character to the number word. */
             number_word[number_word_len++] = ch;
             continue;     
         }
 
-        /* If the word length isn't 0, process the word. */
+        /* If we have a number word, process it. */
         if (number_word_len)
         {
-            /* Process the word. Reset word length to 0. */
+            /* Process the number word and reset the number word length to 0. */
             number_word[number_word_len] = '\0';
             process_number_word(number_word, output_file);
             number_word_len = 0;
@@ -155,7 +155,7 @@ int main(int argc, char ** argv)
     /* Done with input file. Close it. */
     fclose(input_file);
 
-    /* If we have a ending word, process it. */
+    /* If we have a number word left to process, process it. */
     if (number_word_len)
     {
         number_word[number_word_len] = '\0';
@@ -166,7 +166,7 @@ int main(int argc, char ** argv)
     fclose(output_file);
 
     /* The program is done. */
-    printf("\n");
+    printf("Done.\n");
 }
 
 /* Process a number word. */
