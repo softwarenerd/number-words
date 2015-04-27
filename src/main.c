@@ -41,16 +41,16 @@ const char * tens_digits_one[10] = {"TEN",
                                     "NINETEEN"};
 
 /* 10's digits. */
-const char * tens_digits[10] = {    "",
-                                    "",
-                                    "TWENTY",
-                                    "THIRTY",
-                                    "FORTY",
-                                    "FIFTY",
-                                    "SIXTY",
-                                    "SEVENTY",
-                                    "EIGHTY",
-                                    "NINETY"};
+const char * tens_digits[10] = {"",
+                                "",
+                                "TWENTY",
+                                "THIRTY",
+                                "FORTY",
+                                "FIFTY",
+                                "SIXTY",
+                                "SEVENTY",
+                                "EIGHTY",
+                                "NINETY"};
 
 /* Forward declarations. */
 void process_number_word(const char * word, FILE * output_file);
