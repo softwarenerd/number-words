@@ -14,7 +14,10 @@
 #define MAX_NUMBER_DIGITS       12
 
 /* Group number strings. */
-const char * group_number_strings[4] = {NULL, "THOUSAND", "MILLION", "BILLION"};
+const char * group_number_strings[4] = {NULL, 
+                                        "THOUSAND", 
+                                        "MILLION", 
+                                        "BILLION"};
 
 /* Single digits. */
 const char * single_digits[10] = {  "", 
@@ -221,19 +224,21 @@ void process_number_word_group(long number, int group_number, FILE * output_file
         output_a_space = true;
     }
 
-    /* Process tens for this group. */
+    /* When the number is a "teen", process both the 10's and 1's especially. */
     if (tens == 1)
     {
         fprintf(output_file, "%s%s", output_a_space ? " " : "", tens_digits_one[ones]);
     }
     else
     {
+        /* Process 10's. */
         if (tens)
         {
             fprintf(output_file, "%s%s", output_a_space ? " " : "", tens_digits[tens]);
             output_a_space = true;
         }
 
+        /* Process the 1's. */
         if (ones)
         {
             fprintf(output_file, "%s%s", output_a_space ? " " : "", single_digits[ones]);
